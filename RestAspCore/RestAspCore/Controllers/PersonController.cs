@@ -8,7 +8,7 @@ namespace RestAspCore.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CalculatorController : ControllerBase
+    public class PersonController : ControllerBase
     {
      
         // GET api/values/5
