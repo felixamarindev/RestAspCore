@@ -3,7 +3,6 @@ C:\AulaRestfull\RestAspCore\RestAspCore\RestAspCore\bin\Debug\netcoreapp2.2\Rest
 C:\AulaRestfull\RestAspCore\RestAspCore\RestAspCore\bin\Debug\netcoreapp2.2\RestAspCore.runtimeconfig.dev.json
 C:\AulaRestfull\RestAspCore\RestAspCore\RestAspCore\bin\Debug\netcoreapp2.2\RestAspCore.dll
 C:\AulaRestfull\RestAspCore\RestAspCore\RestAspCore\bin\Debug\netcoreapp2.2\RestAspCore.pdb
-C:\AulaRestfull\RestAspCore\RestAspCore\RestAspCore\obj\Debug\netcoreapp2.2\RestAspCore.csprojAssemblyReference.cache
 C:\AulaRestfull\RestAspCore\RestAspCore\RestAspCore\obj\Debug\netcoreapp2.2\RestAspCore.csproj.CoreCompileInputs.cache
 C:\AulaRestfull\RestAspCore\RestAspCore\RestAspCore\obj\Debug\netcoreapp2.2\RestAspCore.RazorAssemblyInfo.cache
 C:\AulaRestfull\RestAspCore\RestAspCore\RestAspCore\obj\Debug\netcoreapp2.2\RestAspCore.RazorAssemblyInfo.cs
@@ -12,3 +11,4 @@ C:\AulaRestfull\RestAspCore\RestAspCore\RestAspCore\obj\Debug\netcoreapp2.2\Rest
 C:\AulaRestfull\RestAspCore\RestAspCore\RestAspCore\obj\Debug\netcoreapp2.2\RestAspCore.RazorTargetAssemblyInfo.cache
 C:\AulaRestfull\RestAspCore\RestAspCore\RestAspCore\obj\Debug\netcoreapp2.2\RestAspCore.dll
 C:\AulaRestfull\RestAspCore\RestAspCore\RestAspCore\obj\Debug\netcoreapp2.2\RestAspCore.pdb
+C:\AulaRestfull\RestAspCore\RestAspCore\RestAspCore\obj\Debug\netcoreapp2.2\RestAspCore.csprojAssemblyReference.cache

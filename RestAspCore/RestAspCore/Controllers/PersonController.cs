@@ -3,41 +3,70 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using RestAspCore.Model;
+using RestAspCore.Services.Implementations;
 
 namespace RestAspCore.Controllers
 {
-    [Route("api/[controller]")]
+     /* Mapeia como requisições de http: // localhost: {porta} / api / person /
+    Por padrão o ASP.NET Core mapeia todas as classes que extendem Controller
+    pegando a primeira parte do nome da classe em minúsculas[Person] Controller
+    e expõe como endpoint REST
+    */
+    [ApiVersion("1")]
+    [Route("api/[controller]/v{version:apiVersion}")]
     [ApiController]
     public class PersonController : ControllerBase
     {
-     
-        // GET api/values/5
-        [HttpGet("{firstnumber}/{secondnumber}")]
-        public IActionResult sum(string firstNumber, string secondNumber)
+        //Declaração do serviço
+        private IPersonService _personService;
+
+        //Gera instancia de IpersonService
+        public PersonController(IPersonService personService)
         {
-            if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
-            {
-                var sum = ConvertToDecimal(firstNumber) + ConvertToDecimal(secondNumber);
-                return Ok(sum.ToString());
-            }
-            return  BadRequest("Invalid input");
+            _personService = personService;
         }
 
-        private decimal ConvertToDecimal(string number)
+        // GET api/values
+        [HttpGet]
+        public IActionResult Get()
         {
-            decimal decimalValue;
-            if(decimal.TryParse(number, out decimalValue))
-            {
-                return decimalValue;
-            }
-            return 0;
+            return Ok ( _personService.FindAll());            
         }
 
-        private bool IsNumeric(string strNumber)
+        //Get api/values/5
+        [HttpGet("{id}")]
+        public IActionResult Get(long id)
         {
-            double number;
-            bool isNumber = double.TryParse(strNumber, System.Globalization.NumberStyles.Any, System.Globalization.NumberFormatInfo.InvariantInfo, out number);
-            return isNumber;
+            var person = _personService.FindById(id);
+            if (person == null) return NotFound();
+            return Ok(person);
         }
+
+        // Post api/values
+        [HttpPost]
+        public IActionResult Post([FromBody]Person person)
+        {
+            if (person == null) return BadRequest();
+            return new ObjectResult (_personService.Create (person));
+        }
+
+        // Put api/values
+        [HttpPut("{id}")]
+        public IActionResult Put([FromBody]Person person)
+        {
+            if (person == null) return BadRequest();
+            return new ObjectResult(_personService.update(person));
+        }
+
+        //DELETE api/value/5
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            _personService.Delete(id);
+            return NoContent();
+        }
+
+
     }
 }
